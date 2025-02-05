@@ -94,7 +94,7 @@ export class ChatGPTApi implements LLMApi {
         );
       }
 
-      baseUrl = isAzure ? accessStore.azureUrl : accessStore.openaiUrl;
+      baseUrl =  accessStore.customerUrl ? accessStore.customerUrl : accessStore.openaiUrl;
     }
 
     if (baseUrl.length === 0) {

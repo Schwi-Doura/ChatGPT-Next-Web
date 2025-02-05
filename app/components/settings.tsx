@@ -1458,6 +1458,45 @@ export function Settings() {
     </>
   );
 
+  const customerConfigComponent = accessStore.provider ===
+      ServiceProvider.Customer && (
+          <>
+            <ListItem
+                title={Locale.Settings.Access.OpenAI.Endpoint.Title}
+                subTitle={Locale.Settings.Access.OpenAI.Endpoint.SubTitle}
+            >
+              <input
+                  aria-label={Locale.Settings.Access.OpenAI.Endpoint.Title}
+                  type="text"
+                  value={accessStore.customerUrl}
+                  placeholder={""}
+                  onChange={(e) =>
+                      accessStore.update(
+                          (access) => (access.customerUrl = e.currentTarget.value),
+                      )
+                  }
+              ></input>
+            </ListItem>
+            <ListItem
+                title={Locale.Settings.Access.Customer.ApiKey.Title}
+                subTitle={Locale.Settings.Access.Customer.ApiKey.SubTitle}
+            >
+              <PasswordInput
+                  aria={Locale.Settings.ShowPassword}
+                  aria-label={Locale.Settings.Access.Customer.ApiKey.Title}
+                  value={accessStore.customerApiKey}
+                  type="text"
+                  placeholder={Locale.Settings.Access.Customer.ApiKey.Placeholder}
+                  onChange={(e) => {
+                    accessStore.update(
+                        (access) => (access.customerApiKey = e.currentTarget.value),
+                    );
+                  }}
+              />
+            </ListItem>
+          </>
+      );
+
   return (
     <ErrorBoundary>
       <div className="window-header" data-tauri-drag-region>
@@ -1822,6 +1861,7 @@ export function Settings() {
                   {XAIConfigComponent}
                   {chatglmConfigComponent}
                   {siliconflowConfigComponent}
+                  {customerConfigComponent}
                 </>
               )}
             </>
