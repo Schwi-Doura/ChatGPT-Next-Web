@@ -129,7 +129,6 @@ export enum ServiceProvider {
   ChatGLM = "ChatGLM",
   DeepSeek = "DeepSeek",
   SiliconFlow = "SiliconFlow",
-  Customer = "Customer"
 }
 
 // Google API safety settings, see https://ai.google.dev/gemini-api/docs/safety-settings

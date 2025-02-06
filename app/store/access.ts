@@ -132,10 +132,6 @@ const DEFAULT_ACCESS_STATE = {
   siliconflowUrl: DEFAULT_SILICONFLOW_URL,
   siliconflowApiKey: "",
 
-  // customer
-  customerUrl: "",
-  customerApiKey: "",
-
   // server config
   needCode: true,
   hideUserApiKey: false,
